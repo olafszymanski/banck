@@ -1,5 +1,5 @@
 <template>
-  <nav class="relative flex flex-col items-center w-screen h-50px xs:h-75px md:h-100px bg-white rounded-10px shadow-lg z-10">
+  <nav class="relative flex flex-col items-center w-screen h-50px xs:h-75px md:h-100px bg-white rounded-b-10px shadow-lg z-10">
     <div class="w-11/12 sm:w-10/12 my-auto">
       <div class="flex flex-row justify-end sm:justify-between items-center">
         <div class="flex sm:flex-none flex-grow my-auto justify-center">
@@ -14,7 +14,7 @@
     </div>
   </nav>
   <transition name="slide">
-    <div v-if="menuActive" class="absolute flex justify-center w-screen my-40px xs:my-65px md:my-90px bg-white rounded-10px shadow-lg sm:invisible">
+    <div v-if="menuActive" class="absolute flex justify-center w-screen my-40px xs:my-65px md:my-90px bg-white rounded-b-10px shadow-lg sm:invisible">
       <Menu class="flex flex-col space-y-5 w-4/5 p-6 my-10px text-center"/>
     </div>
   </transition>

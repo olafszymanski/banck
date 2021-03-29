@@ -22,6 +22,9 @@ module.exports = {
       fontSize: {
         '12px': '12px',
         '14px': '14px',
+        '15px': '15px',
+        '16px': '16px',
+        '17px': '17px',
         '18px': '18px',
         '20px': '20px',
         '25px': '25px',
@@ -35,7 +38,8 @@ module.exports = {
         '160px': '160px'
       },
       borderRadius: {
-        '10px': '0px 0px 10px 10px'
+        'b-10px': '0px 0px 10px 10px',
+        '10px': '10px'
       },
       borderWidth: {
         '3': '3px'
