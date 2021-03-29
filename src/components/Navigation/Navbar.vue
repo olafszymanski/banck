@@ -14,7 +14,7 @@
     </div>
   </nav>
   <transition name="slide">
-    <div v-if="menuActive.value" class="absolute flex justify-center w-screen -my-10px bg-white rounded-10px shadow-lg sm:invisible">
+    <div v-if="menuActive" class="absolute flex justify-center w-screen my-40px xs:my-65px md:my-90px bg-white rounded-10px shadow-lg sm:invisible">
       <Menu class="flex flex-col space-y-5 w-4/5 p-6 my-10px text-center"/>
     </div>
   </transition>

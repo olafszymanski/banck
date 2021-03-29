@@ -20,6 +20,8 @@ module.exports = {
         'cadmium-purple': '#B50717'
       },
       fontSize: {
+        '12px': '12px',
+        '14px': '14px',
         '18px': '18px',
         '20px': '20px',
         '25px': '25px',
@@ -39,7 +41,13 @@ module.exports = {
         '3': '3px'
       },
       margin: {
-        '-10px': '-10px'
+        '-10px': '-10px',
+        '40px': '40px',
+        '65px': '65px',
+        '90px': '90px'
+      },
+      boxShadow: {
+        'reverse-lg': '0 -10px 15px -3px rgba(0, 0, 0, 0.1)',
       }
     },
   },
