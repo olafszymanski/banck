@@ -7,7 +7,7 @@
       <div>
         <span class="text-13px sm:text-14px lg:text-15px xl:text-16px text-argent italic cursor-pointer">Recover your password</span>
       </div>
-      <Button width="w-full lg:w-1/2" height="h-auto" value="Proceed"/>
+      <Button class="w-full lg:w-1/2" value="Proceed"/>
     </div>
   </div>
 </template>
