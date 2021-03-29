@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <MenuItem :index="0">Log in</MenuItem>
-    <MenuItem :index="1">Sign up</MenuItem>
+    <router-link to="/login"><MenuItem :index="0">Log in</MenuItem></router-link>
+    <router-link to="/signup"><MenuItem :index="1">Sign up</MenuItem></router-link>
   </ul>
 </template>
 
