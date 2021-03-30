@@ -65,7 +65,6 @@ export default function() {
       const validatorObject = validator({ value: content, length: content.length, min: props.min, max: props.max, target: props.length, compareTo: props.compareTo, compareMessage: props.compareMessage})
 
       if (validatorObject.condition) {
-        console.log(placeholderValue.split('.').join('') + ' ' + validatorObject.message)
         error = {
           active: true,
           message: props.compareMessage ? props.compareMessage : placeholderValue.split('.').join('') + ' ' + validatorObject.message
