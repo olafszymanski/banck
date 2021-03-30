@@ -1,5 +1,5 @@
 <template>
-  <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } p-3 text-14px sm:text-15px lg:text-16px xl:text-17px text-chinese-black placeholder-argent rounded-10px shadow-lg outline-none transition-all ring-maximum-red ring-opacity-50 focus:ring-2`" :placeholder="state.placeholderValue" :type="state.inputType">
+  <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } block w-full p-3 text-14px sm:text-15px lg:text-16px xl:text-17px text-chinese-black placeholder-argent rounded-10px shadow-lg outline-none transition-all ring-maximum-red ring-opacity-50 focus:ring-2`" type="text" :placeholder="state.placeholderValue">
 </template>
 
 <script>
@@ -7,10 +7,6 @@ import { reactive, watch } from 'vue'
 
 export default {
   props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
     placeholder: {
       type: String,
       required: true
@@ -18,10 +14,9 @@ export default {
   },
   setup(props) {
     const state = reactive({
-      inputType: props.type,
       placeholderValue: props.placeholder,
       content: '',
-      hasContent: false
+      hasContent: false,
     })
 
     watch(() => state.content, (newContent) => {

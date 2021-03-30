@@ -5,20 +5,22 @@
       <TextInput class="w-full md:w-49%" placeholder="Name..."/>
       <TextInput class="w-full md:w-49%" placeholder="Last name..."/>
     </div>
-    <TextInput type="email" placeholder="E-mail..."/>
-    <TextInput type="password" placeholder="Password..."/>
-    <TextInput type="password" placeholder="Confirm password..."/>
+    <TextInput placeholder="E-mail..."/>
+    <PasswordInput placeholder="Password..."/>
+    <PasswordInput placeholder="Confirm password..."/>
     <Button value="Proceed"/>
   </div>
 </template>
 
 <script>
 import TextInput from '@/components/Inputs/TextInput'
+import PasswordInput from '@/components/Inputs/PasswordInput'
 import Button from '@/components/Inputs/Button'
 
 export default {
   components: {
     TextInput,
+    PasswordInput,
     Button
   }
 }
