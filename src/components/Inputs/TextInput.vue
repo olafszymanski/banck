@@ -1,5 +1,5 @@
 <template>
-  <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } p-3 text-14px sm:text-15px lg:text-16px xl:text-17px text-chinese-black placeholder-argent rounded-10px shadow-lg outline-none transition-all ring-maximum-red focus:ring-2`" :placeholder="state.placeholderValue" :type="state.inputType">
+  <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } p-3 text-14px sm:text-15px lg:text-16px xl:text-17px text-chinese-black placeholder-argent rounded-10px shadow-lg outline-none transition-all ring-maximum-red ring-opacity-50 focus:ring-2`" :placeholder="state.placeholderValue" :type="state.inputType">
 </template>
 
 <script>
