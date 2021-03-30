@@ -1,5 +1,5 @@
 <template>
-  <li :class="`${ $store.state.activeItemIndex === itemIndex ? 'text-chinese-black border-maximum-red' : 'text-argent border-argent' } text-18px font-light border-solid border-b-3 transition-all ease-in-out cursor-pointer hover:text-chinese-black hover:border-maximum-red`" @click="clicked">
+  <li :class="`${ $store.state.currentViewIndex === itemIndex ? 'text-chinese-black border-maximum-red' : 'text-argent border-argent' } text-18px font-light border-solid border-b-3 transition-all ease-in-out cursor-pointer hover:text-chinese-black hover:border-maximum-red`" @click="clicked">
     <slot></slot>
   </li>
 </template>
@@ -20,7 +20,7 @@ export default {
     
     const itemIndex = ref(props.index)
     
-    const clicked = () => store.commit('setActiveItemIndex', itemIndex)
+    const clicked = () => store.commit('setViewIndex', itemIndex)
 
     return {
       itemIndex,

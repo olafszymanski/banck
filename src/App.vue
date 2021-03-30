@@ -2,38 +2,39 @@
   <div class="flex flex-col min-h-screen justify-between">
     <Navbar/>
     <main class="flex flex-col items-center">
-      <transition name="fade">
+      <transition name="fade" mode="out-in">
+        <component :is="currentView"/>
       </transition>
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component v-if="!$store.state.loggedIn" :is="Component"/>
-        </transition>
-      </router-view>
     </main>
     <Footer/>
   </div>
 </template>
 
 <script>
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Navbar from '@/components/Navigation/Navbar'
 import Footer from '@/components/Footer'
+import LogIn from '@/views/LogIn'
+import SignUp from '@/views/SignUp'
 
 export default {
   components: {
     Navbar,
-    Footer
+    Footer,
+    LogIn,
+    SignUp
   },
   setup() {
-    const router = useRouter()
     const store = useStore()
 
-    router.afterEach(() => {
-      if (router.currentRoute.value.name == 'login') store.commit('setActiveItemIndex', 0) 
-      else if (router.currentRoute.value.name == 'signup') store.commit('setActiveItemIndex', 1)
-      else store.commit('setActiveItemIndex', -1)
+    const currentView = computed(() => {
+      if (store.state.currentViewIndex === 0) return 'LogIn'
+      else if (store.state.currentViewIndex === 1) return 'SignUp'
+      else return ''
     })
+
+    return { currentView }
   }
 }
 </script>
