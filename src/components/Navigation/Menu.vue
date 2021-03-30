@@ -14,8 +14,7 @@ export default {
   },
   props: {
     deactivateMenu: {
-      type: Function,
-      required: true
+      type: Function
     }
   },
   setup(props) {
