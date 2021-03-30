@@ -1,20 +1,34 @@
 <template>
-  <div class="relative">
-    <div class="absolute inset-y-0 right-3 flex items-center">
-      <svg :class="`w-6 h-6 ${ state.showPassword ? 'text-chinese-black' : 'text-argent' } cursor-pointer`" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" @click="state.showPassword = !state.showPassword"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12   5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+  <div>
+    <div :class="`${ state.hasError ? '' : 'invisible'} flex items-center p-1`">
+      <svg class="w-6 h-6 text-maximum-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <span class="pl-1 text-maximum-red text-13px sm:text-14px lg:text-15px xl:text-16px font-medium italic">{{ state.errorMessage }}</span>
     </div>
-    <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } block w-full p-3 text-14px sm:text-15px lg:text-16px xl:text-17px text-chinese-black placeholder-argent rounded-10px shadow-lg outline-none transition-all ring-maximum-red ring-opacity-50 focus:ring-2`" :placeholder="state.placeholderValue" :type="state.showPassword ? 'text' : 'password'" @focus="state.isActive = true" @blur="state.isActive = false">
+    <div class="relative">
+      <div class="absolute inset-y-0 right-3 flex items-center">
+        <svg :class="`w-6 h-6 ${ state.showPassword ? 'text-chinese-black' : 'text-argent' } cursor-pointer`" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" @click="state.showPassword = !state.showPassword"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12   5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+      </div>
+      <input v-model="state.content" :class="`${ state.hasContent ? '' : 'italic' } ${ state.hasError ? 'text-maximum-red border-maximum-red outline-none' : 'text-chinese-black focus:ring-2' } block w-full p-3 text-14px sm:text-15px lg:text-16px xl:text-17px placeholder-argent border-solid border-2 border-white rounded-10px shadow-lg outline-none transition-all ring-maximum-red ring-opacity-50`" :placeholder="state.placeholderValue" :type="state.showPassword ? 'text' : 'password'" @focus="state.isActive = true" @blur="state.isActive = false">
+    </div>
   </div>
 </template>
 
 <script>
 import { reactive, watch } from 'vue'
+import { useStore } from 'vuex'
+import Validator from '@/mixins'
+import useValidator from '@/validators'
 
 export default {
+  mixins: [ Validator ],
   props: {
     placeholder: {
       type: String,
       required: true
+    },
+    setPassword: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {
@@ -22,12 +36,25 @@ export default {
       placeholderValue: props.placeholder,
       content: '',
       hasContent: false,
+      hasError: false,
+      errorMessage: '',
       showPassword: false
     })
 
+    const store = useStore()
+
     watch(() => state.content, (newContent) => {
+      store.commit('signup/setPassword', newContent)
+
+      state.hasError = false
+
       if (newContent.trim().length !== 0) state.hasContent = true
       else state.hasContent = false
+
+      const validator = useValidator()
+      const { active, message } = validator.validate(props, state.placeholderValue, newContent)
+      state.hasError = active
+      state.errorMessage = message
     })
 
     return { state }

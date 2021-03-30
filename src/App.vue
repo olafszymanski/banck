@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen justify-between">
     <Navbar/>
-    <main class="flex flex-col items-center">
+    <main class="flex flex-col items-center pt-10 pb-10 xs:p-0">
       <Home/>
     </main>
     <Footer/>
