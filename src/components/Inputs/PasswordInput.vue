@@ -24,9 +24,9 @@ export default {
       type: String,
       required: true
     },
-    setPassword: {
-      type: String,
-      default: ''
+    useStore: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -45,7 +45,7 @@ export default {
     const store = useStore()
 
     watch(() => state.content, (newContent) => {
-      store.commit('signup/setPassword', newContent)
+      props.useStore ? store.commit('signup/setPassword', newContent) : null
 
       state.hasError = false
 

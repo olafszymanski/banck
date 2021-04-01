@@ -49,8 +49,6 @@ export default function() {
   }
   const compare = ({ value, compareTo, compareMessage }, ...args) => {
     typeof(args)
-    
-    console.log(value, compareTo)
 
     return {
       condition: value != compareTo,

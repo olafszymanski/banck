@@ -8,7 +8,7 @@
           <TextInput class="w-full md:w-49%" :validators="[validators.min, validators.min]" :min="2" :max="30" placeholder="Last name..."/>
         </div>
         <TextInput checkId="email" :validators="[validators.email, validators.removeWhitespaces]" placeholder="E-mail..."/>
-        <PasswordInput :validators="[validators.min, validators.max, validators.removeWhitespaces]" :min="6" :max="100" placeholder="Password..."/>
+        <PasswordInput :validators="[validators.min, validators.max, validators.removeWhitespaces]" :min="6" :max="100" :useStore="true" placeholder="Password..."/>
         <PasswordInput :validators="[validators.min, validators.max, validators.removeWhitespaces, validators.compare]" :min="6" :max="100" :compareTo="$store.state.signup.password" :compareMessage="`Passwords are not equal!`" placeholder="Confirm password..."/>
       </div>
       <Button value="Proceed"/>
