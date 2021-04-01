@@ -2,7 +2,7 @@ export default {
   namespaced: true,
 
   state: () => ({
-    password: '',
+    password: ''
   }),
   mutations: {
     setPassword(state, password) {
