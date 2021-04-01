@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { reactive, watch } from 'vue'
+import { reactive, watch, onBeforeUpdate } from 'vue'
 import { useStore } from 'vuex'
 import Validator from '@/mixins'
 import useValidator from '@/validators'
@@ -27,6 +27,14 @@ export default {
     useStore: {
       type: Boolean,
       default: false
+    },
+    validate: {
+      type: Boolean,
+      required: true
+    },
+    toggleValidate: {
+      type: Function,
+      required: true
     }
   },
   components: {
@@ -47,15 +55,21 @@ export default {
     watch(() => state.content, (newContent) => {
       props.useStore ? store.commit('signup/setPassword', newContent) : null
 
-      state.hasError = false
-
       if (newContent.trim().length !== 0) state.hasContent = true
       else state.hasContent = false
+    })
 
-      const validator = useValidator()
-      const { active, message } = validator.validate(props, state.placeholderValue, newContent)
-      state.hasError = active
-      state.errorMessage = message
+    onBeforeUpdate(() => {
+      if (props.validate) {
+        state.hasError = false
+
+        const validator = useValidator()
+        const { active, message } = validator.validate(props, state.placeholderValue, state.content)
+        state.hasError = active
+        state.errorMessage = message
+
+        props.toggleValidate()
+      }
     })
 
     return { state }

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { reactive, watch } from 'vue'
+import { reactive, watch, onBeforeUpdate } from 'vue'
 import Validator from '@/mixins'
 import useValidator from '@/validators'
 import ErrorLabel from '@/components/Inputs/ErrorLabel'
@@ -16,6 +16,14 @@ export default {
   props: {
     placeholder: {
       type: String,
+      required: true
+    },
+    validate: {
+      type: Boolean,
+      required: true
+    },
+    toggleValidate: {
+      type: Function,
       required: true
     }
   },
@@ -28,19 +36,25 @@ export default {
       content: '',
       hasContent: false,
       hasError: false,
-      errorMessage: ''
+      errorMessage: '',
     })
 
     watch(() => state.content, (newContent) => {
-      state.hasError = false
-
       if (newContent.trim().length !== 0) state.hasContent = true
       else state.hasContent = false
+    })
 
-      const validator = useValidator()
-      const { active, message } = validator.validate(props, state.placeholderValue, newContent)
-      state.hasError = active
-      state.errorMessage = message
+    onBeforeUpdate(() => {
+      if (props.validate) {
+        state.hasError = false
+
+        const validator = useValidator()
+        const { active, message } = validator.validate(props, state.placeholderValue, state.content)
+        state.hasError = active
+        state.errorMessage = message
+
+        props.toggleValidate()
+      }
     })
 
     return { state }
