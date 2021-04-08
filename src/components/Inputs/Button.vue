@@ -1,5 +1,5 @@
 <template>
-  <input class="p-3 text-white font-medium bg-maximum-red rounded-10px cursor-pointer outline-none transition-all hover:bg-cadmium-purple" type="button" :value="inputValue">
+  <input :class="`p-3 text-white font-medium ${ outlineValue ? 'text-maximum-red bg-white border-solid border-2 border-maximum-red hover:text-white' : 'bg-maximum-red' } rounded-10px cursor-pointer outline-none transition-all hover:bg-cadmium-purple`" type="button" :value="inputValue">
 </template>
 
 <script>
@@ -10,12 +10,20 @@ export default {
     value: {
       type: String,
       required: true
+    },
+    outline: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
     const inputValue = ref(props.value)
+    const outlineValue = ref(props.outline)
 
-    return { inputValue }
+    return { 
+      inputValue,
+      outlineValue  
+    }
   }
 }
 </script>
