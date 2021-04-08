@@ -1,6 +1,10 @@
 <template>
   <transition name="fade" mode="out-in">
-    <span v-if="$store.state.loggedIn">Logged in</span>
+    <span v-if="$store.state.loggedIn">
+      <div class="flex flex-row w-screen justify-center items-center">
+        <BalanceWidget/>
+      </div>
+    </span>
     <component v-else :is="currentView"/>
   </transition>
 </template>
@@ -10,11 +14,13 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import LogIn from '@/views/LogIn'
 import SignUp from '@/views/SignUp'
+import BalanceWidget from '@/components/Widgets/BalanceWidget'
 
 export default {
   components: {
     LogIn,
-    SignUp
+    SignUp,
+    BalanceWidget
   },
   setup() {
     const store = useStore()

@@ -4,7 +4,7 @@ import SignUpModule from '@/store/SignUpModule'
 export default createStore({
   state: {
     currentViewIndex: 0,
-    loggedIn: false
+    loggedIn: true
   },
   mutations: {
     setViewIndex(state, index) {
