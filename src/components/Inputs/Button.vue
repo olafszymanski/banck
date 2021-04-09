@@ -1,5 +1,5 @@
 <template>
-  <input :class="`p-3 text-white font-medium ${ outlineValue ? 'text-maximum-red bg-white border-solid border-2 border-maximum-red hover:text-white hover:border-cadmium-purple' : 'bg-maximum-red' } rounded-10px cursor-pointer outline-none transition-all hover:bg-cadmium-purple`" type="button" :value="inputValue">
+  <input :class="`text-white font-medium ${ outlineValue ? 'text-maximum-red bg-white border-solid border-2 border-maximum-red hover:text-white hover:border-cadmium-purple' : 'bg-maximum-red' } rounded-10px cursor-pointer outline-none transition-all hover:bg-cadmium-purple`" type="button" :value="inputValue">
 </template>
 
 <script>

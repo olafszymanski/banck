@@ -9,7 +9,7 @@
       <div>
         <span class="text-13px sm:text-14px lg:text-15px xl:text-16px text-argent italic cursor-pointer">Recover your password</span>
       </div>
-      <Button class="w-full lg:w-1/2" value="Proceed" @click="validate = true"/>
+      <Button class="w-full lg:w-1/2 p-2" value="Proceed" @click="validate = true"/>
     </div>
   </div>
 </template>

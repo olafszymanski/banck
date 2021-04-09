@@ -11,7 +11,7 @@
         <PasswordInput :validators="[validators.min, validators.max, validators.removeWhitespaces]" :min="6" :max="100" :useStore="true" :validate="validate" :toggleValidate="() => validate = !validate" placeholder="Password..."/>
         <PasswordInput :validators="[validators.min, validators.max, validators.removeWhitespaces, validators.compare]" :min="6" :max="100" :compareTo="$store.state.signup.password" :compareMessage="`Passwords are not equal!`" :validate="validate" :toggleValidate="() => validate = !validate" placeholder="Confirm password..."/>
       </div>
-      <Button value="Proceed" @click="validate = true"/>
+      <Button class="p-2" value="Proceed" @click="validate = true"/>
     </div>
   </div>
 </template>
