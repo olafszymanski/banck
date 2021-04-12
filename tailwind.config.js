@@ -39,7 +39,8 @@ module.exports = {
         '25px': '25px',
         '30px': '30px',
         '35px': '35px',
-        '40px': '40px'
+        '40px': '40px',
+        '2lg': '1.2rem'
       },
       width: {
         '49%': '49%'
@@ -65,6 +66,15 @@ module.exports = {
       },
       boxShadow: {
         'reverse-lg': '0 -10px 15px -3px rgba(0, 0, 0, 0.1)',
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        }
+      },
+      animation: {
+        fade: 'fade 0.4s ease-in-out'
       }
     },
   },
