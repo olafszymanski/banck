@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen justify-between">
     <Navbar/>
-    <main class="flex flex-col items-center pt-10 pb-10 xs:p-0">
+    <main class="flex flex-col items-center p-5">
       <Home/>
     </main>
     <Footer/>
@@ -24,6 +24,7 @@ export default {
 
 <style>
 body {
+  overflow-x: hidden;
   background-color: #F9F9F9;
 }
 </style>
