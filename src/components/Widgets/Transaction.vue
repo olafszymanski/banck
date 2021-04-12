@@ -16,6 +16,7 @@
 <script>
 import { ref } from 'vue'
 import convert from '@/utils/IconConverter'
+import format from '@/utils/MoneyFormatter'
 
 export default {
   props: {
@@ -48,7 +49,7 @@ export default {
     const transactionValue = ref(props.value)
     
     const convertedIcon = transactionIcon.value === 'transfer' ? convert(transactionIcon.value, transactionDescription.value[0]) : convert(transactionIcon.value)
-    const formatedValue = transactionValue.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const formatedValue = format(transactionValue.value)
 
     return { transactionType, convertedIcon, transactionTitle, transactionDescription, formatedValue }
   }
