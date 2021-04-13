@@ -1,6 +1,6 @@
 <template>
   <div :class="`flex w-full px-4 py-2 ${ state.trend ? 'bg-light-green' : 'bg-light-rose' } rounded-10px`">
-    <div class="flex flex-row xs:flex-row 2lg:flex-col xl:flex-row justify-between xs:items-center lg:items-start xl:items-center w-full pl-3 xs:pl-2">
+    <div class="flex flex-row xs:flex-row 2lg:flex-col 1.5xl:flex-row justify-between xs:items-center lg:items-start 1.5xl:items-center w-full pl-3 xs:pl-2">
       <div class="flex flex-col justify-center">
         <span class="text-15px sm:text-16px lg:text-17px font-medium">{{ state.stockName }}</span>
       </div>
@@ -48,19 +48,23 @@ export default {
     })
 
     const request = require('request')
-    request(`https://finnhub.io/api/v1/quote?symbol=${ state.stockName }&token=${ token }`, { json: true }, (err, res) => {
-      if (err) { return console.log(err) }
 
-      state.stockValue = res.body.c
-      state.displayStockValue = format(state.stockValue)
-      state.openStockValue = res.body.o
+    const updatePrice = () => {
+      request(`https://finnhub.io/api/v1/quote?symbol=${ state.stockName }&token=${ token }`, { json: true }, (err, res) => {
+        if (err) { return console.log(err) }
 
-      state.trend = state.stockValue > state.openStockValue ? true : false
+        state.stockValue = res.body.c
+        state.displayStockValue = format(state.stockValue)
+        state.openStockValue = res.body.o
 
-      console.log(props.index, props.length)
+        state.trend = state.stockValue > state.openStockValue ? true : false
 
-      if (props.index === props.length - 1) props.setLoading(false)
-    })
+        if (props.index === props.length - 1) props.setLoading(false)
+      })
+    }
+
+    updatePrice()
+    setInterval(updatePrice, 30000)
 
     return { state }
   }
