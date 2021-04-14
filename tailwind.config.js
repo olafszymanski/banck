@@ -22,10 +22,12 @@ module.exports = {
         'cadmium-purple': '#B50717',
         'light-green': '#F6FEF6',
         'grassy': '#98DF93',
-        'strong-green': '#5EC565',
+        'medium-green': '#DAF2D9',
+        'dark-green': '#5EC565',
         'light-rose': '#FEF6F6',
+        'medium-rose': '#FCE8E8',
         'rose': '#DF9393',
-        'strong-rose': '#D87777'
+        'dark-rose': '#D87777'
       },
       fontSize: {
         '12px': '12px',

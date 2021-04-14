@@ -8,7 +8,7 @@
         <span class="text-15px sm:text-16px lg:text-17px font-medium">{{ transactionTitle }}</span>
         <span class="text-13px sm:text-14px lg:text-15px font-light italic">{{ transactionDescription }}</span>
       </div>
-      <span :class="`${ transactionType ? 'text-strong-green' : 'text-strong-rose' } text-xl xs:text-lg font-medium`">$ {{ formatedValue }}</span>
+      <span :class="`${ transactionType ? 'text-dark-green' : 'text-dark-rose' } text-xl xs:text-lg font-medium`">$ {{ formatedValue }}</span>
     </div>
   </div>
 </template>
