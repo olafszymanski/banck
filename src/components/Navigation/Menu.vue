@@ -39,7 +39,7 @@ export default {
   },
   setup(props) {
     const itemClicked = () => props.deactivateMenu()
-  
+
     return { itemClicked }
   }
 }
