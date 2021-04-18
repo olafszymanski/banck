@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center space-y-5 p-2 xs:p-4 text-chinese-black bg-white rounded-10px shadow-lg">
     <div class="flex flex-col xs:flex-row justify-between items-center space-y-3 xs:space-y-0 w-11/12">
       <span class="text-22px sm:text-20px font-bold">Transactions</span>
-      <Signal :value="true" class="px-1 py-1 sm:px-2 sm:py-1"/>
+      <Signal :positive="true" :value="2000" class="px-1 py-1 sm:px-2 sm:py-1"/>
     </div>
     <div class="flex flex-col justify-start space-y-2 w-full">
       <div class="flex justify-between w-full">

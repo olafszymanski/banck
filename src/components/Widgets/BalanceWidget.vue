@@ -3,8 +3,8 @@
     <div class="flex flex-col xs:flex-row justify-between items-center space-y-3 xs:space-y-0 w-11/12">
       <span class="text-22px xs:text-20px font-bold">Balance</span>
       <div class="flex justify-between xs:justify-end space-x-2 sm:space-x-4 lg:space-x-2 w-full xs:w-11/12">
-        <Signal :value="true" class="px-1 py-1 sm:px-2 sm:py-1"/>
-        <Signal :value="false" class="px-1 py-1 sm:px-2 sm:py-1"/>
+        <Signal :positive="true" :value="8000" class="px-1 py-1 sm:px-2 sm:py-1"/>
+        <Signal :positive="false" :value="2000" class="px-1 py-1 sm:px-2 sm:py-1"/>
       </div>
     </div>
     <span class="text-35px xs:text-40px sm:text-5xl font-medium tracking-widest">$ 20,000.00</span>
