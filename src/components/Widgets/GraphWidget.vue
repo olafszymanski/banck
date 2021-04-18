@@ -1,5 +1,5 @@
 <template>
-  <div :class="`flex flex-col items-center space-y-5 p-2 xs:p-4 text-chinese-black bg-white rounded-10px shadow-lg`">
+  <div class="flex flex-col items-center space-y-5 p-2 xs:p-4 text-chinese-black bg-white rounded-10px shadow-lg">
     <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 xs:space-y-0 w-11/12">
       <span class="text-22px sm:text-20px font-bold">Cash Flow</span>
       <Signal :value="true"/>
