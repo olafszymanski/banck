@@ -1,6 +1,6 @@
 <template>
   <div :class="`flex w-full px-4 py-2 ${ state.trend ? 'bg-light-green hover:bg-medium-green' : 'bg-light-rose hover:bg-medium-rose' } ${ state.error ? 'bg-light-rose' : '' } rounded-10px transition-all cursor-pointer`">
-    <div class="flex flex-row xs:flex-row 2lg:flex-col 1.5xl:flex-row justify-between xs:items-center lg:items-start 1.5xl:items-center w-full pl-3 xs:pl-2">
+    <div class="flex flex-row xl:flex-col 1.5xl:flex-row justify-between xs:items-center lg:items-start 1.5xl:items-center w-full pl-3 xs:pl-2">
       <div class="flex flex-col justify-center">
         <span v-if="state.error" :class="`${ state.error ? 'text-rose' : '' } text-15px sm:text-16px lg:text-17px font-medium`">Unknown error occured! Please refresh the page.</span>
         <span v-else class="text-15px sm:text-16px lg:text-17px font-medium">{{ state.stockName }}</span>

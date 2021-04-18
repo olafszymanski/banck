@@ -39,7 +39,7 @@ export default {
           fontFamily: 'Poppins, sans-serif'
         },
         xaxis: {
-          categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Friday'],
+          categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
         colors: ['#5EC565', '#D87777'],
         stroke: {

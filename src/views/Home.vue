@@ -1,19 +1,24 @@
 <template>
   <transition name="fade" mode="out-in">
     <div v-if="$store.state.loggedIn">
-      <div class="flex justify-center w-full pb-5">
+      <div class="flex justify-center w-full 1.5xl:pb-5">
         <span class="w-11/12 text-3xl font-semibold pl-5">Welcome Olaf</span>
       </div>
       <div class="flex flex-col w-screen">
         <div class="flex flex-col justify-center items-center space-y-6">
-          <div class="flex flex-col 2lg:flex-row space-y-6 2lg:space-x-6 2lg:space-y-0 w-11/12">
-            <div class="flex flex-col space-y-6 2lg:w-2/5">
+          <div class="flex flex-col xl:flex-row space-y-6 xl:space-x-6 xl:space-y-0 w-11/12">
+            <div class="xl:w-2/5 hidden xl:block">
+              <TransactionsWidget/>
+            </div>
+            <div class="flex flex-col space-y-6 xl:w-4/6">
               <BalanceWidget/>
               <GraphWidget/>
             </div>
-            <div class="flex flex-grow-0 flex-col 2lg:flex-row space-y-6 2lg:space-x-6 2lg:space-y-0 w-full 2lg:w-3/5">
-              <TransactionsWidget class="2lg:w-3/5"/>
-              <StocksWidget class="2lg:w-2/5"/>
+            <div class="xl:w-2/5 xl:hidden">
+              <TransactionsWidget/>
+            </div>
+            <div class="xl:w-2/6">
+              <StocksWidget/>
             </div>
           </div>
         </div>

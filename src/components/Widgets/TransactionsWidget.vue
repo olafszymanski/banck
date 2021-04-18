@@ -27,7 +27,8 @@
       </div>
       <div class="space-y-2">
         <Transaction :type="false" icon="phone" title="Mobile Payment" description="ebay.co.uk" :value="200"/>
-        <Transaction :type="true" icon="card" title="Transfer" description="Dad" :value="420"/>
+        <Transaction :type="true" icon="transfer" title="Transfer" description="Dad" :value="420"/>
+        <Transaction :type="true" icon="transfer" title="Transfer" description="Grandpa" :value="420"/>
       </div>
     </div>
     <div class="flex justify-end w-full pt-5">
