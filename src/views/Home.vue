@@ -9,7 +9,7 @@
           <div class="flex flex-col 2lg:flex-row space-y-6 2lg:space-x-6 2lg:space-y-0 w-11/12">
             <div class="flex flex-col space-y-6 2lg:w-2/5">
               <BalanceWidget/>
-              <BalanceWidget/>
+              <GraphWidget/>
             </div>
             <div class="flex flex-grow-0 flex-col 2lg:flex-row space-y-6 2lg:space-x-6 2lg:space-y-0 w-full 2lg:w-3/5">
               <TransactionsWidget class="2lg:w-3/5"/>
@@ -29,6 +29,7 @@ import { useStore } from 'vuex'
 import LogIn from '@/views/LogIn'
 import SignUp from '@/views/SignUp'
 import BalanceWidget from '@/components/Widgets/BalanceWidget'
+import GraphWidget from '@/components/Widgets/GraphWidget'
 import TransactionsWidget from '@/components/Widgets/TransactionsWidget'
 import StocksWidget from '@/components/Widgets/StocksWidget'
 
@@ -37,6 +38,7 @@ export default {
     LogIn,
     SignUp,
     BalanceWidget,
+    GraphWidget,
     TransactionsWidget,
     StocksWidget
   },
