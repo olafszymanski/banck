@@ -31,7 +31,7 @@
         <Transaction :type="true" icon="transfer" title="Transfer" description="Grandpa" :value="420"/>
       </div>
     </div>
-    <div class="flex justify-end w-full pt-5">
+    <div class="flex justify-end w-full">
       <Button class="p-1 w-full xs:w-1/2 md:w-1/3" value="More" :outline="true"/>
     </div>
   </div>
